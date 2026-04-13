@@ -1,6 +1,7 @@
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 
+
 export default function Layout({ children }) {
   return (
     <div className="flex h-screen bg-[#070707] font-sans selection:bg-[#BAAB48]/30">
