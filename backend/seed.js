@@ -28,7 +28,7 @@ const seedAll = async () => {
       password: hashedPassword,
       role: 'admin'
     });
-    console.log('✅ Admin Seeded: admin@securelogix.com / password123');
+    console.log('✅ Admin Seeded');
 
     // 3. Seed Clients
     const client1 = await Client.create({
