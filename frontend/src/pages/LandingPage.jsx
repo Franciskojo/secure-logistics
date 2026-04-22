@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
+import LiveChat from '../components/chat/LiveChat';
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -510,6 +511,7 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+      <LiveChat />
     </div>
   );
 }

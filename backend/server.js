@@ -25,6 +25,11 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
   console.log(`⚡ SECURELOGIX WEBSOCKET CONNECTED: [ID: ${socket.id}]`);
   
+  socket.on('chatMessage', (msg) => {
+    // Broadcast the message to all connected clients
+    io.emit('chatMessage', msg);
+  });
+
   socket.on('disconnect', () => {
     console.log(`❌ Websocket Disconnected: [ID: ${socket.id}]`);
   });
