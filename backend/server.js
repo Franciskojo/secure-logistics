@@ -15,7 +15,7 @@ const server = app.listen(PORT, () => {
 const io = new Server(server, {
   cors: {
     origin: [
-      'http://localhost:5173',
+      'https://secure-logistics.vercel.app',
       process.env.CLIENT_URL
     ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT']
@@ -24,7 +24,7 @@ const io = new Server(server, {
 
 io.on('connection', (socket) => {
   console.log(`⚡ SECURELOGIX WEBSOCKET CONNECTED: [ID: ${socket.id}]`);
-  
+
   socket.on('chatMessage', (msg) => {
     // Broadcast the message to all connected clients
     io.emit('chatMessage', msg);
