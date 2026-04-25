@@ -129,13 +129,10 @@ export default function LandingPage() {
                 {trackLoading ? '...' : 'Track'}
               </button>
             </form>
-
-            <Link to="/login" className="border border-[#777] px-6 py-2.5 hover:border-[#BAAB48] hover:text-[#BAAB48] text-white transition-all flex items-center">Client Portal</Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="xl:hidden text-white flex items-center gap-4">
-            <Link to="/login" className="text-[10px] font-bold border border-white/20 px-3 py-1.5 uppercase tracking-widest text-[#BAAB48]">Login</Link>
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="focus:outline-none">
               <svg className="w-8 h-8 text-[#A9A9A9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
