@@ -98,7 +98,8 @@ export default function LandingPage() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#111] border-b border-zinc-900 py-4' : 'bg-gradient-to-b from-[#111]/90 to-transparent py-8'}`}>
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="SecureLogix Logo" className="h-8 md:h-10 w-auto object-contain" />
             <h1 className="text-2xl md:text-3xl font-serif font-black tracking-widest uppercase text-white">
               Secure<span className="text-zinc-500">Logix</span>
             </h1>
@@ -456,9 +457,12 @@ export default function LandingPage() {
       <footer className="bg-[#111] pt-32 pb-12 border-t border-[#222] px-6">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-12 text-sm text-[#ccc] mb-32">
           <div className="lg:col-span-2">
-             <h1 className="text-2xl font-serif font-black tracking-widest uppercase text-white mb-6">
-              Secure<span className="text-[#A9A9A9]">Logix</span>
-            </h1>
+             <div className="flex items-center gap-3 mb-6">
+               <img src="/logo.png" alt="SecureLogix Logo" className="h-8 w-auto object-contain" />
+               <h1 className="text-2xl font-serif font-black tracking-widest uppercase text-white m-0">
+                Secure<span className="text-[#A9A9A9]">Logix</span>
+              </h1>
+             </div>
             <p className="max-w-sm text-lg font-light leading-relaxed mb-8 text-[#A9A9A9]">
               Delivering absolute peace of mind through secure global logistics and high-tech vaulting facilities.
             </p>
