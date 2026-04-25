@@ -14,11 +14,12 @@ export default function AuthProvider({ children }) {
       password
     });
 
-    const { token, user } = res.data;
+    const { token, admin } = res.data;
 
     localStorage.setItem('token', token);
-    setUser(user);
+    setUser(admin);
   };
+
 
   const logout = () => {
     localStorage.removeItem('token');

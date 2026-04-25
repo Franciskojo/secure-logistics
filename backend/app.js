@@ -14,15 +14,30 @@ import { notFound, errorHandler } from './middleware/error.middleware.js';
 
 const app = express();
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://secure-logistics.vercel.app',
+      process.env.CLIENT_URL,
+      'http://localhost:5173',
+      'http://localhost:5174',
+    ];
+    // allow requests with no origin (e.g. curl, mobile apps, server-to-server)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked for origin: ${origin}`));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
 // Middleware
-app.use(cors({
-  origin: [
-    'https://secure-logistics.vercel.app',
-    process.env.CLIENT_URL
-  ],
-  credentials: true
-}));
-app.use(helmet());
+app.use(cors(corsOptions));
+app.options('/{*path}', cors(corsOptions)); // handle preflight for all routes
+app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(express.json());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
