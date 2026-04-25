@@ -12,7 +12,7 @@ export const registerAdmin = async (data) => {
 
   const admin = await Admin.create({
     name,
-    email,
+    email: email.toLowerCase(),
     password: hashedPassword,
     role
   });
@@ -23,7 +23,7 @@ export const registerAdmin = async (data) => {
 export const loginAdmin = async (data) => {
   const { email, password } = data;
 
-  const admin = await Admin.findOne({ email });
+  const admin = await Admin.findOne({ email: email.toLowerCase() });
   if (!admin) throw new Error('Invalid credentials');
 
   const isMatch = await bcrypt.compare(password, admin.password);
